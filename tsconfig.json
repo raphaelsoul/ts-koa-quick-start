@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "lib": [
+      "es2015",
+      "es2015.promise",
+      "es5",
+      "dom"
+    ],
+    "typeRoots": [
+      "./typings"
+    ],
+    "types": [
+      "node",
+      "bluebird-global"
+    ]
+  },
+  "include": [
+    "src/**/**.ts",
+    "test/**/**.spec.ts",
+    "typings"
+  ],
+  "exclude": [
+    "dist/**/**",
+    "webpack/**.js",
+    "node_modules"
+  ]
+}

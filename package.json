@@ -1,0 +1,40 @@
+{
+  "name": "ts-koa-quick-start",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/app.bundle.js",
+    "build": "webpack --config webpack/webpack.prod.js",
+    "dev": "webpack --config webpack/webpack.dev.js --watch",
+    "test": "mocha -r ts-node/register tests/**/*.spec.ts"
+  },
+  "devDependencies": {
+    "@types/bluebird": "3.5.20",
+    "@types/bluebird-global": "3.5.5",
+    "@types/koa": "2.0.45",
+    "@types/koa-bodyparser": "4.2.0",
+    "@types/koa-generic-session": "1.0.2",
+    "@types/koa-router": "7.0.28",
+    "@types/lodash": "4.14.109",
+    "@types/node": "10.1.4",
+    "@types/sequelize": "4.27.20",
+    "ts-loader": "4.3.0",
+    "ts-node": "6.0.5",
+    "typescript": "2.8.3",
+    "uglifyjs-webpack-plugin": "1.2.5",
+    "webpack": "4.10.2",
+    "webpack-cli": "^2.1.4",
+    "webpack-merge": "4.1.2",
+    "webpack-node-externals": "1.7.2"
+  },
+  "dependencies": {
+    "bluebird": "3.5.1",
+    "koa": "2.5.1",
+    "koa-bodyparser": "4.2.1",
+    "koa-generic-session": "2.0.1",
+    "koa-router": "7.4.0",
+    "lodash": "4.17.10",
+    "log4js": "2.7.0",
+    "sequelize": "4.37.10"
+  }
+}
