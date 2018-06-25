@@ -6,11 +6,11 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-import * as Koa from "koa"
-import {getLogger} from "log4js"
-import * as session from "koa-generic-session"
-import * as bodyParser from "koa-bodyparser"
-import logging from "../middlewares/logging"
+import * as Koa from "koa";
+import * as bodyParser from "koa-bodyparser";
+import * as session from "koa-generic-session";
+import {getLogger} from "log4js";
+import logging from "../middlewares/logging";
 
 export const isDev = process.env.NODE_ENV === "development";
 
@@ -18,7 +18,6 @@ export const isDev = process.env.NODE_ENV === "development";
 export const app = new Koa();
 export const logger = getLogger("http");
 logger.level = isDev ? "debug" : "info";
-
 
 // 0x02 session support
 app.keys = ["keys", "key"]; // make it in configurable
@@ -32,10 +31,8 @@ app.use(session({
     // })
 }));
 
-
 // 0x03 body parser
 app.use(bodyParser());
-
 
 // 0x04 logging
 app.use(logging);
@@ -51,8 +48,8 @@ app.use(logging);
 // 0x06 error handle
 // const errorHandler = require("koa-error")
 // app.use(errorHandler())
-app.on("error", e => {
-    logger.error(e)
+app.on("error", (e) => {
+    logger.error(e);
 });
 
 // 0x07 static serving

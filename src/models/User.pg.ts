@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-import * as sequelize from "sequelize"
+import * as sequelize from "sequelize";
 
 const COLUMNS = {
     // id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
@@ -20,7 +20,7 @@ const COLUMNS = {
     points: {type: sequelize.INTEGER, defaultValue: 0},
     created_at: {type: sequelize.DATE},
     updated_at: {type: sequelize.DATE},
-    deleted_at: {type: sequelize.DATE}
+    deleted_at: {type: sequelize.DATE},
 };
 
 const OPTIONS = {
@@ -28,43 +28,41 @@ const OPTIONS = {
     paranoid: true,
     underscored: true,
     tableName: "common_users",
-    version: true
+    version: true,
 };
-
 
 export interface IUserAttributes {
     // id?: number,
-    uuid?: string
-    username: string
-    password: string
-    password_hashed?: string
-    email?: string
-    roles?: ENUM_ROLES[]
-    permissions?: ENUM_PERMISSIONS[]
-    points?: number
-    created_at?: Date
-    updated_at?: Date
-    deleted_at?: Date
+    uuid?: string;
+    username: string;
+    password: string;
+    password_hashed?: string;
+    email?: string;
+    roles?: ENUM_ROLES[];
+    permissions?: ENUM_PERMISSIONS[];
+    points?: number;
+    created_at?: Date;
+    updated_at?: Date;
+    deleted_at?: Date;
 }
 
 export interface IUserMethods {
     // declare association methods and properties here
+    someMethodHere(): void;
 }
 
 export enum ENUM_ROLES {
     ADMIN = "admin",
-    USER = "user"
+    USER = "user",
 }
 
 export enum ENUM_PERMISSIONS {
 
 }
 
-
-export type UserInstance = sequelize.Instance<IUserAttributes> & IUserAttributes & IUserMethods
+export type UserInstance = sequelize.Instance<IUserAttributes> & IUserAttributes & IUserMethods;
 
 // export a define function rather than a defined model to avoid association problem
-export default function (db: sequelize.Sequelize) {
-    return db.define<UserInstance, IUserAttributes>("User", COLUMNS, OPTIONS)
+export default function(db: sequelize.Sequelize) {
+    return db.define<UserInstance, IUserAttributes>("User", COLUMNS, OPTIONS);
 }
-

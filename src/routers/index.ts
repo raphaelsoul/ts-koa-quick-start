@@ -11,7 +11,6 @@
 // webRouter.use(SomeMiddlewareOnlyWorksForThisRouter())
 // webRouter.use("/auth", AuthRouter.routes()).use(AuthRouter.allowedMethods())
 
-
 // import * as Router from "koa-router"
 // import {webRouter} from "./web/webRouter"
 // import {apiRouter} from "./api/apiRouter"
@@ -24,4 +23,3 @@
 // baseRouter.use("/web", webRouter.routes()).use(webRouter.allowedMethods())
 // baseRouter.use("/api", apiRouter.routes()).use(apiRouter.allowedMethods())
 // baseRouter.use("/admin", adminRouter.routes()).use(adminRouter.allowedMethods())
-

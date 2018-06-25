@@ -6,16 +6,16 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-import {logger} from "../core/app"
-import {Context} from "koa"
+import {Context} from "koa";
+import {logger} from "../core/app";
 
-export default async (ctx: Context, next: Function) => {
+export default async (ctx: Context, next: () => void) => {
     try {
-        let start = Date.now();
+        const start = Date.now();
         logger.info(`<-- ${ctx.method} ${ctx.url}`);
         await next();
-        logger.info(`--> ${ctx.method} ${ctx.url} ${ctx.status} ${Date.now() - start}ms`)
+        logger.info(`--> ${ctx.method} ${ctx.url} ${ctx.status} ${Date.now() - start}ms`);
     } catch (e) {
-        throw e
+        throw e;
     }
-}
+};

@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/app.bundle.js",
-    "build": "webpack --config webpack/webpack.prod.js",
-    "dev": "webpack --config webpack/webpack.dev.js --watch",
-    "test": "mocha -r ts-node/register tests/**/*.spec.ts"
+    "start": "node dist/index.js",
+    "start:dev": "NODE_ENV=development node dist/index.js",
+    "build": "npm run test && node_modules/.bin/tsc",
+    "dev": "node_modules/.bin/tsc -w",
+    "lint-autofix": "node_modules/.bin/tslint -c tslint.json --fix 'src/**/*.ts'",
+    "lint": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+    "test": "npm run lint && echo 'should run unittest with \"mocha -r ts-node/register tests/**/*.spec.ts\"'"
   },
   "devDependencies": {
     "@types/bluebird": "3.5.20",
@@ -35,6 +38,7 @@
     "koa-router": "7.4.0",
     "lodash": "4.17.10",
     "log4js": "2.7.0",
-    "sequelize": "4.37.10"
+    "sequelize": "4.37.10",
+    "tslint": "5.10.0"
   }
 }

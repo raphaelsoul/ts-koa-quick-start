@@ -6,14 +6,14 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-import * as bluebird from "bluebird"
+import * as bluebird from "bluebird";
+import * as http from "http";
 // http service
-import {app, logger} from "./core/app"
-import * as http from "http"
+import {app, logger} from "./core/app";
 
 global.Promise = bluebird.Promise;
 
-const server = http.createServer(app.callback()).listen(3000, (e: Error) => {
-    if (e) return logger.error(e.stack);
-    return logger.info(`Application listing on ${(<any>server.address()).address}:${(<any>server.address()).port}`)
+const server = http.createServer(app.callback()).listen(process.env.PORT || 3000, (e: Error) => {
+    if (e) { return logger.error(e.stack); }
+    return logger.info(`Application listing on ${(server.address() as any).address}:${(server.address() as any).port}`);
 });

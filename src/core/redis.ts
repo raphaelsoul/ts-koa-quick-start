@@ -6,12 +6,12 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-import * as Redis from "redis"
-import * as bluebird from "bluebird"
+import * as bluebird from "bluebird";
+import * as Redis from "redis";
 
 bluebird.promisifyAll(Redis.RedisClient.prototype);
 bluebird.promisifyAll(Redis.Multi.prototype);
 
 export const redis: any = Redis.createClient({
-    url: process.env.REDIS_URL || "redis://127.0.0.1:6379/?db=10"
+    url: process.env.REDIS_URL || "redis://127.0.0.1:6379/?db=10",
 });
