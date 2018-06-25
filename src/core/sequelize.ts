@@ -15,7 +15,7 @@ import {default as UserDefine, IUserAttributes, UserInstance} from "../models/Us
 export const logger = getLogger("sql");
 logger.level = "debug";
 
-export const sequelize = new Sequelize(process.env.MYSQL_URL || "postgresql://localhost:5432/database", {
+export const sequelize = new Sequelize(process.env.DATABASE_URL || "postgresql://localhost:5432/database", {
     logging: (sql: string, time?: number | Model<any, any>) => {
         logger.debug(isNumber(time) ? `${time}ms` : "", sql);
     },
