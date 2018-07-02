@@ -2,35 +2,43 @@
   "name": "ts-koa-quick-start",
   "version": "1.0.0",
   "license": "MIT",
+  "pre-commit": [
+    "test"
+  ],
   "scripts": {
     "start": "node dist/index.js",
     "start:dev": "NODE_ENV=development node dist/index.js",
-    "build": "npm run test && node_modules/.bin/tsc",
-    "dev": "node_modules/.bin/tsc -w",
-    "db:migrate:dev": "sequelize db:migrate --env \"production\"",
-    "db:migrate": "sequelize db:migrate --env \"development\"",
-    "lint-autofix": "node_modules/.bin/tslint -c tslint.json --fix 'src/**/*.ts'",
+    "build": "npm run test && node_modules/.bin/tsc && webpack --config webpack/webpack.prod.js",
+    "dev": "webpack --config webpack/webpack.dev.js --watch & node_modules/.bin/tsc -w",
+    "db:migrate": "sequelize db:migrate --env \"production\"",
+    "db:migrate:dev": "sequelize db:migrate --env \"development\"",
+    "db:migrate:test": "sequelize db:migrate --env \"test\"",
+    "lint-autofix": "node_modules/.bin/tslint -c tslint.json --fix '{src,resources,tests}/**/*.ts'",
     "lint": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
-    "test": "npm run lint && echo 'should run unittest with \"mocha -r ts-node/register tests/**/*.spec.ts\"'"
+    "test": "npm run lint && NODE_ENV=test mocha -r ts-node/register tests/**/*.spec.ts"
   },
   "devDependencies": {
     "@types/bluebird": "3.5.20",
     "@types/bluebird-global": "3.5.5",
+    "@types/chai": "4.1.4",
     "@types/koa": "2.0.45",
     "@types/koa-bodyparser": "4.2.0",
     "@types/koa-generic-session": "1.0.2",
     "@types/koa-router": "7.0.28",
     "@types/lodash": "4.14.109",
+    "@types/mocha": "5.2.4",
     "@types/node": "10.1.4",
     "@types/sequelize": "4.27.20",
+    "chai": "4.1.2",
+    "mocha": "5.2.0",
+    "pre-commit": "1.2.2",
     "ts-loader": "4.3.0",
     "ts-node": "6.0.5",
     "typescript": "2.8.3",
     "uglifyjs-webpack-plugin": "1.2.5",
     "webpack": "4.10.2",
     "webpack-cli": "^2.1.4",
-    "webpack-merge": "4.1.2",
-    "webpack-node-externals": "1.7.2"
+    "webpack-merge": "4.1.2"
   },
   "dependencies": {
     "bluebird": "3.5.1",

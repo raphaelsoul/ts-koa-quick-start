@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "public",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react"
+  },
+  "lib": [
+    "es2015",
+    "es2015.promise",
+    "es5",
+    "dom"
+  ],
+  "typeRoots": [
+    "resources/typings"
+  ],
+  "include": [
+    "resources/**/*"
+  ],
+  "exclude": [
+    "dist/**/**",
+    "webpack/**.js",
+    "node_modules"
+  ]
+}

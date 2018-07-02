@@ -6,11 +6,10 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-const path = require('path')
-const nodeExternals = require('webpack-node-externals')
+const path = require('path');
 
 module.exports = {
-    entry: path.resolve(__dirname, '../src/index.ts'),
+    entry: path.resolve(__dirname, '../resources/index.ts'),
     module: {
         rules: [
             {
@@ -20,23 +19,12 @@ module.exports = {
             }
         ]
     },
-    target: 'node',
-    externals: [nodeExternals()],
-    node: {
-        console: true,
-        global: true,
-        process: true,
-        Buffer: true,
-        __filename: true,
-        __dirname: true,
-        setImmediate: false,
-        window: false
-    },
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
     },
     output: {
         filename: 'app.bundle.js',
-        path: path.resolve(__dirname, '../dist')
+        publicPath: "/assets/",
+        path: path.resolve(__dirname, '../public/assets')
     },
 }
